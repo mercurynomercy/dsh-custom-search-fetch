@@ -1,0 +1,69 @@
+{
+  "name": "dsh-custom-search-fetch",
+  "version": "0.1.0",
+  "description": "DeepSeek Harness plugin that routes the built-in web_search tool to a self-hosted SearXNG instance and web_fetch to a self-hosted Firecrawl instance through the ctx.web provider seam.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0",
+    "dsh": ">=0.2.2-rc.1"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "compatibility": {
+      "dshReleases": {
+        "0.2.2-rc.1+": "compatible"
+      }
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "~4.1.0",
+    "@deepseek-ai/dsh-web": ">=0.2.2-rc.1",
+    "@deepseek-ai/schemastery": "~3.19.0"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "~4.1.0",
+    "@deepseek-ai/dsh-llm": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-web": "0.2.2-rc.1",
+    "@deepseek-ai/schemastery": "~3.19.0"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "smoke": "node scripts/smoke.mjs"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "searxng",
+    "firecrawl",
+    "web-search",
+    "web-fetch",
+    "self-hosted"
+  ],
+  "license": "MIT",
+  "author": "mercurynomercy",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mercurynomercy/dsh-custom-search-fetch.git"
+  },
+  "homepage": "https://github.com/mercurynomercy/dsh-custom-search-fetch#readme",
+  "bugs": {
+    "url": "https://github.com/mercurynomercy/dsh-custom-search-fetch/issues"
+  }
+}

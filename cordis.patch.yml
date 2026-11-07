@@ -1,0 +1,32 @@
+# dsh-custom-search-fetch bundle patch, applied as a profile bundle layer after
+# the official bundles (dsh-base and the Web app) and before your profile's own
+# cordis.patch.yml.
+#
+# 1. Pin the web capability seam to this plugin's providers. The shipped
+#    web_search and web_fetch tools stay mounted and unchanged; only the backend
+#    behind ctx.web changes. An id-targeted patch replaces the whole config of
+#    the matched row, and dsh-web has exactly these two fields.
+#    To go back to one built-in backend without uninstalling, restate this row
+#    in your profile cordis.patch.yml, e.g. `fetchProvider: http` keeps SearXNG
+#    search and returns fetch to the anonymous HTTP fetcher. The Web search
+#    settings page's "Use the new Web Search API" switch also writes this row
+#    and wins over this layer when it is saved.
+- id: web
+  name: '@deepseek-ai/dsh-web'
+  config:
+    searchProvider: custom-searxng
+    fetchProvider: custom-firecrawl
+
+# 2. Mount the providers. Configure the endpoints from the Plugins page or in
+#    your profile cordis.patch.yml (an id-targeted row replaces this config):
+#
+#    - id: dsh-custom-search-fetch
+#      config:
+#        searxngBaseURL: http://localhost:8080
+#        firecrawlBaseURL: http://localhost:3002
+#
+#    Do not also insert this row by hand: `insert` does not dedupe by id, and a
+#    second row registers the same provider ids twice (WEB_DUPLICATE_PROVIDER).
+- insert:
+    - id: dsh-custom-search-fetch
+      name: dsh-custom-search-fetch
