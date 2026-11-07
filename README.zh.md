@@ -23,7 +23,9 @@ dsh plugin --profile <profile> add github:mercurynomercy/dsh-custom-search-fetch
 
 ## 配置
 
-在 **插件 → dsh-custom-search-fetch** 页面配置，或写进 profile 的 `cordis.patch.yml`。按 id 定位的行会整体替换 config，设置过的字段都要写全：
+打开 **插件 → dsh-custom-search-fetch**，README 下方有设置卡片，分 **SearXNG 搜索** 和 **Firecrawl 抓取** 两组，可以修改下面所有字段。保存后写入 profile 的 `cordis.patch.yml` 并立即生效，不用重启。改过的字段可以点“恢复默认”，值无效时不能保存。Firecrawl API key 只写不读：输入框一开始是空的，留空保存不会清除已存的 key。
+
+也可以手动编辑 `cordis.patch.yml`。按 id 定位的行会整体替换 config，设置过的字段都要写全：
 
 ```yaml
 - id: dsh-custom-search-fetch

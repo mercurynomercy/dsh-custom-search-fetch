@@ -1,6 +1,6 @@
 {
   "name": "dsh-custom-search-fetch",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "DeepSeek Harness plugin that routes the built-in web_search tool to a self-hosted SearXNG instance and web_fetch to a self-hosted Firecrawl instance through the ctx.web provider seam.",
   "type": "module",
   "main": "lib/index.js",
@@ -8,10 +8,12 @@
     ".": {
       "default": "./lib/index.js"
     },
+    "./client": "./lib/client.js",
     "./package.json": "./package.json"
   },
   "files": [
     "lib/index.js",
+    "lib/client.js",
     "cordis.patch.yml",
     "README.md",
     "README.zh.md",
@@ -29,6 +31,13 @@
       "dshReleases": {
         "0.2.2-rc.1+": "compatible"
       }
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-settings"
+      ]
     }
   },
   "peerDependencies": {

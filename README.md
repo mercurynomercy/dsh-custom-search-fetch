@@ -23,7 +23,9 @@ You can also install it from the Plugins page / dsh-market once it is listed. Re
 
 ## Configure
 
-Configure the plugin from **Plugins → dsh-custom-search-fetch**, or in your profile's `cordis.patch.yml`. An id-targeted row replaces the whole config, so restate every field you set:
+Open **Plugins → dsh-custom-search-fetch**. Under the README, a settings card edits every field below, grouped into **SearXNG search** and **Firecrawl fetch**. Saving writes the values to your profile's `cordis.patch.yml` and applies them right away, with no restart. Each overridden field has **Reset to default**, and an invalid value blocks the save. The Firecrawl API key field is write-only: it starts blank, and saving it blank keeps the stored key.
+
+You can also edit `cordis.patch.yml` by hand. An id-targeted row replaces the whole config, so restate every field you set:
 
 ```yaml
 - id: dsh-custom-search-fetch
